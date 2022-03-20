@@ -1,0 +1,23 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tailwindcss -i ./input.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stoicaandrei/cv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stoicaandrei/cv/issues"
+  },
+  "homepage": "https://github.com/stoicaandrei/cv#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
