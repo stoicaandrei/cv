@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
+import { CVDisplay } from 'components';
 
 const CVPage: NextPage = () => {
-  return <p>Here will be the cv</p>;
+  return <CVDisplay />;
 };
 
 export default CVPage;
