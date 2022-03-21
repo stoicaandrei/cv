@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <FirebaseProvider>
       <AuthProvider>
-        <div className="min-h-screen min-w-screen bg-gray-100">
+        <div className="min-w-screen min-h-screen bg-gray-100">
           <Component {...pageProps} />
         </div>
       </AuthProvider>
