@@ -4,17 +4,17 @@ export type CVData = {
   photoUrl: string;
   introduction: string; // html
   contactInfo: {
-    mail: string;
+    email: string;
     phone: string;
-    github: string;
+    address: string;
     linkedin: string;
     skype: string;
-    address: string;
+    github: string;
   };
   skills: {
     name: string;
     years: number;
-  };
+  }[];
   education: {
     name: string;
     degree: string;
@@ -24,11 +24,13 @@ export type CVData = {
   languages: {
     name: string;
     level: string;
-  };
+  }[];
   experience: {
     position: string;
     project: string;
     company: string;
     description: string; // html
+    startDate: string;
+    endDate: string;
   }[];
 };
