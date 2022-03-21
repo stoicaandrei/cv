@@ -1,1 +1,1 @@
-export {default as CVDisplay} from './CVDisplay'
+export { default as CVDisplay } from './CVDisplay';
