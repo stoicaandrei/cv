@@ -5,8 +5,8 @@ const data: CVData = {
   title: 'Senior Javascript Full-stack Developer • Contractor • Freelancer ',
   photoUrl: '/profile.jpg',
   introduction: `<p>I am a Senior Javascript consultant / contractor / freelancer with <b>4+ years of experience</b>, only interested in remote work.
-<p>I help companies around the world to design and implement their software solutions.</p>
-<p>Do you need software solutions for your business? Let's connect!</p>`,
+<p>I use my passion, skills and experience to design and implement top of the line software solutions for online businesses worldwide.</p>
+<p>Do you want to see how my expertise can help your business? <b>Let's discuss!</b></p>`,
   contactInfo: {
     email: 'andrei00stoica@gmail.com',
     phone: '(+40) 763 368 2222',
@@ -44,11 +44,10 @@ const data: CVData = {
 <li><b>Secured funding of over $500k by building from scratch the MVP of a new centralized system</b> by working closely with the client and understanding their needs. Also, fixed 90% of bugs by fixing the flaws in the existing system architecture.</li>
 <li><b>Increased overall review scores by more than 150% and customer satisfaction by over 40%</b> by improving user feedback process and solving their existing problems.</li>
 </ul>
-<p>Skills: Nodejs, Express, MongoDB, Reactjs, React Query, Ant Design, NX monorepo, Digitalocean CI/CD, System Architecture, Agile, Asana, socket.io</p>
-      `,
+<p>Skills: Nodejs, Express, MongoDB, Reactjs, React Query, Ant Design, NX monorepo, Digitalocean CI/CD, System Architecture, Agile, Asana, socket.io</p>`,
     },
     {
-      position: 'Senior Django developer',
+      position: 'Senior Python developer',
       project: 'Portfolio Manager Simulator',
       company: 'Traderion',
       startDate: '2020-05-01',
