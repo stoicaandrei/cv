@@ -6,6 +6,7 @@ import {
   PhoneOutlined,
   SkypeOutlined,
 } from '@ant-design/icons';
+import moment from 'moment';
 import Image from 'next/image';
 import { RawHtml } from 'components';
 import { CVData } from 'types';
@@ -107,6 +108,30 @@ const CVDisplay = ({ data }: Props) => {
         </div>
         <div>
           <h2 className="text-base font-semibold">WORK EXPERIENCE</h2>
+          <div className="flex flex-col gap-2">
+            {data.experience.map((work) => {
+              const start = moment(work.startDate).format('MMM YYYY');
+              const end = moment(work.endDate).format('MMM YYYY');
+
+              return (
+                <div key={work.project} className="flex flex-col">
+                  <div className="flex flex-row justify-between text-sm">
+                    <h3 className="font-semibold">{work.position}</h3>
+                    <span>
+                      {start} - {end}
+                    </span>
+                  </div>
+                  <h4 className="text-sm">
+                    {work.project} | {work.company}
+                  </h4>
+                  <RawHtml
+                    html={work.description}
+                    className="flex flex-col gap-2"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
