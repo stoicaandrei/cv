@@ -6,9 +6,12 @@ type Props = {
 } & HTMLAttributes<HTMLDivElement>;
 
 const RawHtml = ({ html, ...props }: Props) => {
-  return (
-    <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }} {...props} />
-  );
+  const content = sanitizeHtml(html, {
+    allowedAttributes: {
+      '*': ['class'],
+    },
+  });
+  return <div dangerouslySetInnerHTML={{ __html: content }} {...props} />;
 };
 
 export default RawHtml;

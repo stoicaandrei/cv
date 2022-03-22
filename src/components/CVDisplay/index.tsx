@@ -101,9 +101,9 @@ const CVDisplay = ({ data }: Props) => {
         </div>
       </div>
       <div className="basis-2/3 bg-white p-5">
-        <div>
+        <div className="pb-3">
           <h2 className="text-base font-semibold">ABOUT ME</h2>
-          <RawHtml html={data.introduction} className="flex flex-col gap-2" />
+          <RawHtml html={data.introduction} className="flex flex-col gap-1" />
         </div>
         <div>
           <h2 className="text-base font-semibold">WORK EXPERIENCE</h2>
