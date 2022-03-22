@@ -33,7 +33,6 @@ const CVDisplay = ({ data }: Props) => {
             {data.name}
           </h1>
           <h2>{data.title}</h2>
-          <h2>Contractor - Freelancer</h2>
         </div>
         <div>
           <h2 className="text-base font-semibold text-white">CONTACT</h2>
@@ -59,7 +58,7 @@ const CVDisplay = ({ data }: Props) => {
             <li className="flex items-center gap-2">
               <LinkedinOutlined />
               <a href={contactInfo.linkedin} target="_blank" rel="noreferrer">
-                {contactInfo.linkedin.replace(/.+\/in\/(.+)\//, '$1')}
+                {contactInfo.linkedin.replace(/.+\.com\/(.+)\//, '$1')}
               </a>
             </li>
             <li className="flex items-center gap-2">
@@ -122,7 +121,7 @@ const CVDisplay = ({ data }: Props) => {
                     </span>
                   </div>
                   <h4 className="text-sm">
-                    {work.project} | {work.company}
+                    {work.project} {work.company && `| ${work.company}`}
                   </h4>
                   <RawHtml
                     html={work.description}
