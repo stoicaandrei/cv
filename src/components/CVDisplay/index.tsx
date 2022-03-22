@@ -113,7 +113,10 @@ const CVDisplay = ({ data }: Props) => {
               const end = moment(work.endDate).format('MMM YYYY');
 
               return (
-                <div key={work.project} className="flex flex-col">
+                <div key={work.project} className="relative flex flex-col pl-5">
+                  <div className="absolute left-[0.625rem] top-1 h-3 w-3 -translate-x-1/2 transform rounded-full bg-gray-500" />
+                  <div className="absolute left-[0.625rem] top-[0.7rem] h-[110%] w-[2px] -translate-x-1/2 transform bg-gray-500" />
+
                   <div className="flex flex-row justify-between text-sm">
                     <h3 className="font-semibold">{work.position}</h3>
                     <span>
