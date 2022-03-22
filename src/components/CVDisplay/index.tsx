@@ -76,9 +76,27 @@ const CVDisplay = ({ data }: Props) => {
         </div>
         <div>
           <h2 className="text-base font-semibold text-white">SKILLS</h2>
+          <div className="grid grid-cols-[1fr,min-content]">
+            {data.skills.map((skill) => (
+              <>
+                <span>{skill.name}</span>
+                <span className="whitespace-nowrap">
+                  {skill.years} year{skill.years > 1 ? 's' : ''}
+                </span>
+              </>
+            ))}
+          </div>
         </div>
         <div>
           <h2 className="text-base font-semibold text-white">LANGUAGES</h2>
+          <div className="grid grid-cols-[1fr,min-content]">
+            {data.languages.map((language) => (
+              <>
+                <span>{language.name}</span>
+                <span>{language.level}</span>
+              </>
+            ))}
+          </div>
         </div>
       </div>
       <div className="basis-2/3 bg-white p-5">
