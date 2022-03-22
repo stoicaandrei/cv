@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import moment from 'moment';
 import Image from 'next/image';
+import { Fragment } from 'react';
 import { RawHtml } from 'components';
 import { CVData } from 'types';
 
@@ -79,23 +80,23 @@ const CVDisplay = ({ data }: Props) => {
           <h2 className="text-base font-semibold text-white">SKILLS</h2>
           <div className="grid grid-cols-[1fr,min-content]">
             {data.skills.map((skill) => (
-              <>
+              <Fragment key={skill.name}>
                 <span>{skill.name}</span>
                 <span className="whitespace-nowrap">
                   {skill.years} year{skill.years > 1 ? 's' : ''}
                 </span>
-              </>
+              </Fragment>
             ))}
           </div>
         </div>
         <div>
           <h2 className="text-base font-semibold text-white">LANGUAGES</h2>
           <div className="grid grid-cols-[1fr,min-content]">
-            {data.languages.map((language) => (
-              <>
+            {data.languages.map((language, index) => (
+              <Fragment key={language.name}>
                 <span>{language.name}</span>
                 <span>{language.level}</span>
-              </>
+              </Fragment>
             ))}
           </div>
         </div>
