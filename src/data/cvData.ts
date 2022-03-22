@@ -9,7 +9,7 @@ const data: CVData = {
 <p>Do you need software solutions for your business? Let's connect!</p>`,
   contactInfo: {
     email: 'andrei00stoica@gmail.com',
-    phone: '+(40) 763 368 2222',
+    phone: '(+40) 763 368 2222',
     address: 'Timisoara, Romania',
     linkedin: 'https://www.linkedin.com/in/stoic-ndrei/',
     skype: 'https://join.skype.com/invite/GPqup0VYfWKO',
