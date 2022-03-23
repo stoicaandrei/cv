@@ -1,11 +1,11 @@
 import {
-  EnvironmentOutlined,
-  GithubOutlined,
-  LinkedinOutlined,
+  EnvironmentFilled,
+  GithubFilled,
+  LinkedinFilled,
   LinkOutlined,
-  MailOutlined,
-  PhoneOutlined,
-  SkypeOutlined,
+  MailFilled,
+  PhoneFilled,
+  SkypeFilled,
 } from '@ant-design/icons';
 import moment from 'moment';
 import Image from 'next/image';
@@ -21,7 +21,7 @@ const CVDisplay = ({ data }: Props) => {
   const { contactInfo } = data;
   return (
     <div className="flex h-[29.7cm] w-[21cm] flex-row text-xs">
-      <div className="flex basis-1/3 flex-col justify-start gap-5 bg-gray-700 p-5 align-middle text-gray-300">
+      <div className="flex basis-1/3 flex-col justify-start gap-6 bg-gray-700 p-5 align-middle text-gray-300">
         <div className="w-full text-center">
           <div className="relative aspect-square ">
             <Image
@@ -31,54 +31,49 @@ const CVDisplay = ({ data }: Props) => {
               className="rounded-full"
             />
           </div>
-          <h1 className="py-2 text-xl font-semibold uppercase text-white">
+          <h1 className="py-2 text-2xl font-semibold uppercase text-white">
             {data.name}
           </h1>
-          <h2>{data.title}</h2>
+          <h2 className="text-sm">
+            <RawHtml html={data.title} />
+          </h2>
         </div>
         <div>
-          <h2 className="text-base font-semibold text-white">CONTACT</h2>
-          <ul>
-            <li className="flex items-center gap-2">
-              <PhoneOutlined />
-              <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
-            </li>
-            <li className="flex items-center gap-2">
-              <MailOutlined />
-              <a
-                target="_blank"
-                href={`mailto:${contactInfo.email}`}
-                rel="noreferrer"
-              >
-                {contactInfo.email}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <EnvironmentOutlined />
-              {contactInfo.address}
-            </li>
-            <li className="flex items-center gap-2">
-              <LinkedinOutlined />
-              <a href={contactInfo.linkedin} target="_blank" rel="noreferrer">
-                {contactInfo.linkedin.replace(/.+\.com\/(.+)\//, '$1')}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <SkypeOutlined />
-              <a target="_blank" href={contactInfo.skype} rel="noreferrer">
-                {data.name}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <GithubOutlined />
-              <a target="_blank" href={contactInfo.github} rel="noreferrer">
-                {contactInfo.github.split('/').slice(-1)[0]}
-              </a>
-            </li>
-          </ul>
+          <h2 className="pb-1 text-base font-semibold text-white">CONTACT</h2>
+          <div className="grid grid-cols-[min-content,1fr] gap-y-1 gap-x-2">
+            <PhoneFilled />
+            <a href={`tel:${contactInfo.phone}`}>{contactInfo.phone}</a>
+
+            <MailFilled />
+            <a
+              target="_blank"
+              href={`mailto:${contactInfo.email}`}
+              rel="noreferrer"
+            >
+              {contactInfo.email}
+            </a>
+
+            <EnvironmentFilled />
+            {contactInfo.address}
+
+            <LinkedinFilled />
+            <a href={contactInfo.linkedin} target="_blank" rel="noreferrer">
+              {contactInfo.linkedin.replace(/.+\.com\/(.+)\//, '$1')}
+            </a>
+
+            <SkypeFilled />
+            <a target="_blank" href={contactInfo.skype} rel="noreferrer">
+              {data.name}
+            </a>
+
+            <GithubFilled />
+            <a target="_blank" href={contactInfo.github} rel="noreferrer">
+              {data.name}
+            </a>
+          </div>
         </div>
         <div>
-          <h2 className="text-base font-semibold text-white">SKILLS</h2>
+          <h2 className="pb-1 text-base font-semibold text-white">SKILLS</h2>
           <div className="grid grid-cols-[1fr,min-content]">
             {data.skills.map((skill) => (
               <Fragment key={skill.name}>
@@ -90,32 +85,38 @@ const CVDisplay = ({ data }: Props) => {
             ))}
           </div>
         </div>
+        {!!data.languages.length && (
+          <div>
+            <h2 className="pb-1 text-base font-semibold text-white">
+              LANGUAGES
+            </h2>
+            <div className="grid grid-cols-[1fr,min-content]">
+              {data.languages.map((language) => (
+                <Fragment key={language.name}>
+                  <span>{language.name}</span>
+                  <span>{language.level}</span>
+                </Fragment>
+              ))}
+            </div>
+          </div>
+        )}
         <div>
-          <h2 className="text-base font-semibold text-white">LANGUAGES</h2>
-          <div className="grid grid-cols-[1fr,min-content]">
-            {data.languages.map((language, index) => (
-              <Fragment key={language.name}>
-                <span>{language.name}</span>
-                <span>{language.level}</span>
+          <h2 className="pb-1 text-base font-semibold text-white">
+            OPEN SOURCE
+          </h2>
+          <div className="grid grid-cols-[min-content,1fr] gap-x-2 gap-y-1">
+            {data.openSource.map((openSource) => (
+              <Fragment key={openSource.name}>
+                <LinkOutlined />
+                <a target="_blank" href={openSource.url} rel="noreferrer">
+                  {openSource.name}
+                </a>
               </Fragment>
             ))}
           </div>
         </div>
         <div>
-          <h2 className="text-base font-semibold text-white">OPEN SOURCE</h2>
-          <ul>
-            {data.openSource.map((openSource) => (
-              <li className="flex items-center gap-2" key={openSource.name}>
-                <LinkOutlined />
-                <a target="_blank" href={openSource.url} rel="noreferrer">
-                  {openSource.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-base font-semibold text-white">AWARDS</h2>
+          <h2 className="pb-1 text-base font-semibold text-white">AWARDS</h2>
           <div className="grid grid-cols-[1fr,min-content]">
             {data.awards.map((award) => (
               <Fragment key={award.competition}>
@@ -128,12 +129,14 @@ const CVDisplay = ({ data }: Props) => {
       </div>
       <div className="basis-2/3 bg-white p-5">
         <div className="pb-3">
-          <h2 className="text-base font-semibold">ABOUT ME</h2>
+          <h2 className="pb-1 text-base font-semibold">ABOUT ME</h2>
           <RawHtml html={data.introduction} className="flex flex-col gap-1" />
         </div>
         <div>
-          <h2 className="text-base font-semibold">WORK EXPERIENCE</h2>
-          <div className="flex flex-col gap-2">
+          <h2 className="pb-1 text-base font-semibold">
+            MOST RELEVANT WORK EXPERIENCE
+          </h2>
+          <div className="flex flex-col gap-5">
             {data.experience.map((work) => {
               const start = moment(work.startDate).format('MMM YYYY');
               const end = moment(work.endDate).format('MMM YYYY');
@@ -149,12 +152,12 @@ const CVDisplay = ({ data }: Props) => {
                       {start} - {end}
                     </span>
                   </div>
-                  <h4 className="text-sm">
+                  <h4 className="pb-3 text-sm">
                     {work.project} {work.company && `| ${work.company}`}
                   </h4>
                   <RawHtml
                     html={work.description}
-                    className="flex flex-col gap-2"
+                    className="flex flex-col gap-3"
                   />
                 </div>
               );

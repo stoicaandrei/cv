@@ -2,14 +2,14 @@ import { CVData } from 'types';
 
 const data: CVData = {
   name: 'Andrei Stoica',
-  title: 'Senior Javascript Full-Stack Developer • Contractor • Freelancer ',
+  title: 'Senior Javascript Developer <br /> Contractor • Freelancer',
   photoUrl: '/profile.jpg',
-  introduction: `<p>I am a Senior Javascript consultant / contractor / freelancer with <b>4+ years of experience</b>, only interested in remote work.
+  introduction: `<p>I am a Senior Javascript Consultant / Contractor / Freelancer with <b>4+ years of experience</b>, only interested in remote work.
 <p>I use my passion, skills and experience to design and implement top of the line software solutions for online businesses worldwide.</p>
 <p>Do you want to see how my expertise can help your business? <b>Let's discuss!</b></p>`,
   contactInfo: {
     email: 'andrei00stoica@gmail.com',
-    phone: '(+40) 763 368 2222',
+    phone: '(+40) 763 682 222',
     address: 'Timisoara, Romania',
     linkedin: 'https://www.linkedin.com/in/stoic-ndrei/',
     skype: 'https://join.skype.com/invite/GPqup0VYfWKO',
@@ -27,10 +27,7 @@ const data: CVData = {
     { name: 'Unit Testing', years: 1 },
   ],
   education: [],
-  languages: [
-    { name: 'English', level: 'Proficient' },
-    { name: 'Romanian', level: 'Native' },
-  ],
+  languages: [],
   experience: [
     {
       position: 'Senior Javascript Full-Stack Developer',
@@ -60,7 +57,7 @@ const data: CVData = {
 <p>Skills: Django, PostgreSQL, Redis, Channels, Celery, Reactjs, Redux, Ant Design, AWS CI/CD, System Architecture, Agile Team Management, Jira</p>`,
     },
     {
-      position: 'Javascript Backend Developer & Co-founder',
+      position: 'Javascript Backend Developer (Co-founder)',
       project: 'Math e-elarning platform',
       company: 'Prepi',
       startDate: '2018-10-01',
