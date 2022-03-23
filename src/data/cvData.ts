@@ -2,7 +2,7 @@ import { CVData } from 'types';
 
 const data: CVData = {
   name: 'Andrei Stoica',
-  title: 'Senior Javascript Full-stack Developer • Contractor • Freelancer ',
+  title: 'Senior Javascript Full-Stack Developer • Contractor • Freelancer ',
   photoUrl: '/profile.jpg',
   introduction: `<p>I am a Senior Javascript consultant / contractor / freelancer with <b>4+ years of experience</b>, only interested in remote work.
 <p>I use my passion, skills and experience to design and implement top of the line software solutions for online businesses worldwide.</p>
@@ -33,7 +33,7 @@ const data: CVData = {
   ],
   experience: [
     {
-      position: 'Senior Javascript developer',
+      position: 'Senior Javascript Full-Stack Developer',
       project: 'Agora',
       company: 'Upgrade Education',
       startDate: '2021-08-01',
@@ -47,7 +47,7 @@ const data: CVData = {
 <p>Skills: Nodejs, Express, MongoDB, Reactjs, React Query, Ant Design, NX monorepo, Digitalocean CI/CD, System Architecture, Agile, Asana, socket.io</p>`,
     },
     {
-      position: 'Senior Python developer',
+      position: 'Senior Javascript Full-Stack Developer',
       project: 'Portfolio Manager Simulator',
       company: 'Traderion',
       startDate: '2020-05-01',
@@ -60,7 +60,7 @@ const data: CVData = {
 <p>Skills: Django, PostgreSQL, Redis, Channels, Celery, Reactjs, Redux, Ant Design, AWS CI/CD, System Architecture, Agile Team Management, Jira</p>`,
     },
     {
-      position: 'Backend developer & Co-founder',
+      position: 'Backend Developer & Co-founder',
       project: 'Math e-elarning platform',
       company: 'Prepi',
       startDate: '2018-10-01',
