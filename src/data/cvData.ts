@@ -37,7 +37,7 @@ const data: CVData = {
       endDate: '2022-03-01',
       description: `
 <p>The client, an e-learning startup dedicated to helping students with their university admission process, had problems scaling up the business and was unable to obtain more funding from investors, due to lacking a centralized system for content, staff and stats.</p>
-<ul class="list-disc pl-5">
+<ul class="list-disc pl-5 flex flex-col gap-3">
 <li><b>Secured funding of over $500k by building from scratch the MVP of a new centralized system</b> by working closely with the client and understanding their needs. Also, fixed 90% of bugs by fixing the flaws in the existing system architecture.</li>
 <li><b>Increased overall review scores by more than 150% and customer satisfaction by over 40%</b> by improving user feedback process and solving their existing problems.</li>
 </ul>
@@ -50,7 +50,7 @@ const data: CVData = {
       startDate: '2020-05-01',
       endDate: '2021-08-01',
       description: `<p>The client, a startup providing e-learning services for the fintech sector, was struggling with low student satisfaction and low productivity among trainers, due to lacking a controlled environment for students to practice portfolio management.</p>
-<ul class="list-disc pl-5">
+<ul class="list-disc pl-5 flex flex-col gap-3">
 <li><b>Built a successful MVP in less than 5 months</b> by keeping a starling line of communication with the client and by efficiently managing a team to optimize all client needs inside the web app.</li>
 <li><b>Increased company profit by over 60% and client's customer pool by more than 25%</b> by continuously growing the product over the next year and by constantly releasing new, highly requested features.</li>
 </ul>
@@ -63,7 +63,7 @@ const data: CVData = {
       startDate: '2018-10-01',
       endDate: '2021-02-01',
       description: `<p>The clients, a large group of Romanian high school students, were wasting money on private lessons and had no other efficient alternative when trying to study due to lacking a platform for finding reliable information tailored to their needs.</p>
-<ul class="list-disc pl-5">
+<ul class="list-disc pl-5 flex flex-col gap-3">
 <li><b>Succeeded in pitching the project to over 10 media apparitions and talked to investors</b> by taking part in a start-up accelerator by developing from scratch a fully tailored MVP in less than 4 months.</li>
 <li><b>Achieved over 5K users in the app and website, with over 6K hours of learning tracked in the first year after the launch</b> by consistently offering users sought after features and continuously improving the product.</li>
 </ul>
