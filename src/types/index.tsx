@@ -33,4 +33,8 @@ export type CVData = {
     startDate: string;
     endDate: string;
   }[];
+  awards: {
+    name: string;
+    competition: string;
+  }[];
 };

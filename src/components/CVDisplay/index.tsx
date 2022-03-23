@@ -100,6 +100,17 @@ const CVDisplay = ({ data }: Props) => {
             ))}
           </div>
         </div>
+        <div>
+          <h2 className="text-base font-semibold text-white">AWARDS</h2>
+          <div className="grid grid-cols-[1fr,min-content]">
+            {data.awards.map((award, index) => (
+              <Fragment key={award.competition}>
+                <span>{award.name}</span>
+                <span className="whitespace-nowrap">{award.competition}</span>
+              </Fragment>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="basis-2/3 bg-white p-5">
         <div className="pb-3">

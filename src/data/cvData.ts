@@ -73,6 +73,7 @@ const data: CVData = {
 <p>Skills: Nodejs, Express, MongoDB, jQuery, pug.js, LaTex, MathJax, Digitalocean, Team Management, Trello, Start-up Development, Git</p>`,
     },
   ],
+  awards: [{ name: 'Bronze Medal', competition: 'National CS Olympiad' }],
 };
 
 export default data;
