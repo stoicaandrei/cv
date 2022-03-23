@@ -73,6 +73,12 @@ const data: CVData = {
 <p>Skills: Nodejs, Express, MongoDB, jQuery, pug.js, LaTex, MathJax, Digitalocean, Team Management, Trello, Start-up Development, Git</p>`,
     },
   ],
+  openSource: [
+    {
+      name: 'Redux State Manager',
+      url: 'https://github.com/stoicaandrei/redux-state-manager',
+    },
+  ],
   awards: [{ name: 'Bronze Medal', competition: 'National CS Olympiad' }],
 };
 

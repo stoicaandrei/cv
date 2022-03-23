@@ -2,6 +2,7 @@ import {
   EnvironmentOutlined,
   GithubOutlined,
   LinkedinOutlined,
+  LinkOutlined,
   MailOutlined,
   PhoneOutlined,
   SkypeOutlined,
@@ -101,9 +102,22 @@ const CVDisplay = ({ data }: Props) => {
           </div>
         </div>
         <div>
+          <h2 className="text-base font-semibold text-white">OPEN SOURCE</h2>
+          <ul>
+            {data.openSource.map((openSource) => (
+              <li className="flex items-center gap-2" key={openSource.name}>
+                <LinkOutlined />
+                <a target="_blank" href={openSource.url} rel="noreferrer">
+                  {openSource.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
           <h2 className="text-base font-semibold text-white">AWARDS</h2>
           <div className="grid grid-cols-[1fr,min-content]">
-            {data.awards.map((award, index) => (
+            {data.awards.map((award) => (
               <Fragment key={award.competition}>
                 <span>{award.name}</span>
                 <span className="whitespace-nowrap">{award.competition}</span>
