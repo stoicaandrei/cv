@@ -60,7 +60,7 @@ const data: CVData = {
 <p>Skills: Django, PostgreSQL, Redis, Channels, Celery, Reactjs, Redux, Ant Design, AWS CI/CD, System Architecture, Agile Team Management, Jira</p>`,
     },
     {
-      position: 'Backend Developer & Co-founder',
+      position: 'Javascript Backend Developer & Co-founder',
       project: 'Math e-elarning platform',
       company: 'Prepi',
       startDate: '2018-10-01',
