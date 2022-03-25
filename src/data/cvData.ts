@@ -8,7 +8,7 @@ const data: CVData = {
 <p>I use my passion, skills and experience to design and implement top of the line software solutions for online businesses worldwide.</p>
 <p>Do you want to see how my expertise can help your business? <b>Let's discuss!</b></p>`,
   contactInfo: {
-    email: 'andrei00stoica@gmail.com',
+    email: 'andrei@stoica.dev',
     phone: '(+40) 763 682 222',
     address: 'Timisoara, Romania',
     linkedin: 'https://www.linkedin.com/in/stoic-ndrei/',
