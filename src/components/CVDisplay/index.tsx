@@ -130,15 +130,17 @@ const CVDisplay = ({ data }: Props) => {
         </div>
         <div className="basis-2/3 bg-white p-5">
           <div className="pb-3">
-            <h2 className="pb-1 text-base font-semibold">ABOUT ME</h2>
+            <h2 className="pb-3 text-base font-semibold">ABOUT ME</h2>
             <RawHtml
               html={data.introduction}
               className="flex flex-col gap-3 text-justify"
             />
           </div>
           <div>
-            <h2 className="pb-1 text-base font-semibold">WORK EXPERIENCE</h2>
-            <div className="flex flex-col gap-5">
+            <h2 className="pb-2 pt-3 text-base font-semibold">
+              WORK EXPERIENCE
+            </h2>
+            <div className="flex flex-col gap-6">
               {data.experience.slice(0, 3).map((work) => {
                 const start = moment(work.startDate).format('MMM YYYY');
                 const end = moment(work.endDate).format('MMM YYYY');
@@ -146,7 +148,7 @@ const CVDisplay = ({ data }: Props) => {
                 return (
                   <div
                     key={work.project}
-                    className="relative flex flex-col pl-5"
+                    className="relative flex flex-col px-5"
                   >
                     <div className="absolute left-[0.625rem] top-1 h-3 w-3 -translate-x-1/2 transform rounded-full bg-gray-500" />
                     <div className="absolute left-[0.625rem] top-[0.7rem] h-[110%] w-[2px] -translate-x-1/2 transform bg-gray-500" />
