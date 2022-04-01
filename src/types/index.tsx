@@ -1,44 +1,79 @@
+export type ContactInfoItem = {
+  icon: string; // font awesome class
+  text: string;
+  url?: string;
+};
+type ContactInfo = {
+  title: 'contact';
+  items: ContactInfoItem[];
+};
+export type SkillItem = {
+  name: string;
+  years: number;
+};
+type Skills = {
+  title: 'skills';
+  items: SkillItem[];
+};
+export type LanguageItem = {
+  name: string;
+  level: string;
+};
+type Languages = {
+  title: 'languages';
+  items: LanguageItem[];
+};
+export type OpenSourceItem = {
+  name: string;
+  url: string;
+};
+type OpenSource = {
+  title: 'open source';
+  items: OpenSourceItem[];
+};
+export type AwardItem = {
+  name: string;
+  competition: string;
+};
+type Awards = {
+  title: 'awards';
+  items: AwardItem[];
+};
+type CustomSection = {
+  title: string;
+  content: string; // html
+};
+export type SidebarItem =
+  | ContactInfo
+  | Skills
+  | Languages
+  | OpenSource
+  | Awards
+  | CustomSection;
+
+type AboutMe = {
+  title: 'about me';
+  introduction: string; // html
+};
+export type ExperienceItem = {
+  position: string;
+  project: string;
+  company: string;
+  description: string; // html
+  startDate: string;
+  endDate: string;
+  mostRelevant: boolean;
+};
+type Experience = {
+  title: 'experience';
+  items: ExperienceItem[];
+};
+export type BodyItem = AboutMe | Experience | CustomSection;
+
 export type CVData = {
+  photoUrl: string;
   name: string;
   title: string;
-  photoUrl: string;
-  introduction: string; // html
-  contactInfo: {
-    email: string;
-    phone: string;
-    address: string;
-    linkedin: string;
-    skype: string;
-    github: string;
-  };
-  skills: {
-    name: string;
-    years: number;
-  }[];
-  education: {
-    name: string;
-    degree: string;
-    startYear: number;
-    endYear: number;
-  }[];
-  languages: {
-    name: string;
-    level: string;
-  }[];
-  experience: {
-    position: string;
-    project: string;
-    company: string;
-    description: string; // html
-    startDate: string;
-    endDate: string;
-  }[];
-  openSource: {
-    name: string;
-    url: string;
-  }[];
-  awards: {
-    name: string;
-    competition: string;
-  }[];
+  sidebar: SidebarItem[];
+  body: BodyItem[];
 };
