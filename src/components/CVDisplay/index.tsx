@@ -19,6 +19,7 @@ type Props = {
 
 const CVDisplay = ({ data }: Props) => {
   const { contactInfo } = data;
+
   return (
     <div>
       <div className="flex h-[29.7cm] w-[21cm] flex-row text-xs">
@@ -128,52 +129,54 @@ const CVDisplay = ({ data }: Props) => {
             </div>
           </div>
         </div>
-        <div className="basis-2/3 bg-white p-5">
-          <div className="pb-3">
-            <h2 className="pb-3 text-base font-semibold">ABOUT ME</h2>
-            <RawHtml
-              html={data.introduction}
-              className="flex flex-col gap-3 text-justify"
-            />
-          </div>
-          <div>
-            <h2 className="pb-2 pt-3 text-base font-semibold">
-              WORK EXPERIENCE
-            </h2>
-            <div className="flex flex-col gap-6">
-              {data.experience.slice(0, 3).map((work) => {
-                const start = moment(work.startDate).format('MMM YYYY');
-                const end = moment(work.endDate).format('MMM YYYY');
+        <div className="basis-2/3 bg-white p-5 pr-10">
+          <div className="h-full overflow-hidden">
+            <div className="pb-3">
+              <h2 className="pb-3 text-base font-semibold">ABOUT ME</h2>
+              <RawHtml
+                html={data.introduction}
+                className="flex flex-col gap-3 text-justify"
+              />
+            </div>
+            <div>
+              <h2 className="pb-2 pt-3 text-base font-semibold">
+                MOST RELEVANT WORK EXPERIENCE
+              </h2>
+              <div className="flex flex-col gap-6">
+                {data.experience.slice(0, 3).map((work) => {
+                  const start = moment(work.startDate).format('MMM YYYY');
+                  const end = moment(work.endDate).format('MMM YYYY');
 
-                return (
-                  <div
-                    key={work.project}
-                    className="relative flex flex-col px-5"
-                  >
-                    <div className="absolute left-[0.625rem] top-1 h-3 w-3 -translate-x-1/2 transform rounded-full bg-gray-500" />
-                    <div className="absolute left-[0.625rem] top-[0.7rem] h-[110%] w-[2px] -translate-x-1/2 transform bg-gray-500" />
+                  return (
+                    <div
+                      key={work.project}
+                      className="relative flex flex-col pl-5"
+                    >
+                      <div className="absolute left-[0.625rem] top-1 h-3 w-3 -translate-x-1/2 transform rounded-full bg-gray-500" />
+                      <div className="absolute left-[0.625rem] top-[0.7rem] h-[110%] w-[2px] -translate-x-1/2 transform bg-gray-500" />
 
-                    <div className="flex flex-row justify-between text-sm">
-                      <h3 className="font-semibold">{work.position}</h3>
-                      <span>
-                        {start} - {end}
-                      </span>
+                      <div className="flex flex-row justify-between text-sm">
+                        <h3 className="font-semibold">{work.position}</h3>
+                        <span>
+                          {start} - {end}
+                        </span>
+                      </div>
+                      <h4 className="pb-3 text-sm">
+                        {work.project} {work.company && `| ${work.company}`}
+                      </h4>
+                      <RawHtml
+                        html={work.description}
+                        className="flex flex-col gap-3 text-justify"
+                      />
                     </div>
-                    <h4 className="pb-3 text-sm">
-                      {work.project} {work.company && `| ${work.company}`}
-                    </h4>
-                    <RawHtml
-                      html={work.description}
-                      className="flex flex-col gap-3 text-justify"
-                    />
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex h-[29.7cm] w-[21cm] flex-row text-xs">
+      {/* <div className="flex h-[29.7cm] w-[21cm] flex-row text-xs">
         <div className="flex basis-1/3 flex-col justify-start gap-6 bg-gray-700 p-5 align-middle text-gray-300"></div>
         <div className="basis-2/3 bg-white p-5">
           <div className="flex flex-col gap-5">
@@ -204,7 +207,7 @@ const CVDisplay = ({ data }: Props) => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
