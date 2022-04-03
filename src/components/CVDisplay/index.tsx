@@ -5,9 +5,10 @@ import { CVData } from 'types';
 
 type Props = {
   data: CVData;
+  short?: boolean;
 };
 
-const CVDisplay = ({ data }: Props) => {
+const CVDisplay = ({ data, short }: Props) => {
   return (
     <div>
       <div className="flex h-[29.7cm] w-[21cm] flex-row text-xs">
@@ -24,7 +25,7 @@ const CVDisplay = ({ data }: Props) => {
         <div className="basis-2/3 bg-white p-5 pr-10">
           <div className="flex h-full flex-col gap-5 overflow-hidden">
             {data.body.map((item) => (
-              <BodyItem key={item.title} item={item} />
+              <BodyItem key={item.title} item={item} short={short} />
             ))}
           </div>
         </div>

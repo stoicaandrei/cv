@@ -66,11 +66,11 @@ export type ExperienceItem = {
   endDate: string;
   mostRelevant: boolean;
 };
-type Experience = {
-  title: 'experience';
+type WorkExperience = {
+  title: 'work experience' | 'most relevant work experience';
   items: ExperienceItem[];
 };
-export type BodyItem = AboutMe | Experience | CustomSection;
+export type BodyItem = AboutMe | WorkExperience | CustomSection;
 
 export type CVData = {
   photoUrl: string;
