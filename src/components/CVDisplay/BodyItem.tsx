@@ -28,6 +28,7 @@ const renderContent = (item: BodyItemType) => {
 };
 
 const BodyItem = ({ item, short }: Props) => {
+  item = { ...item };
   if (short && item.title === 'work experience') {
     item.title = 'most relevant work experience';
   }
