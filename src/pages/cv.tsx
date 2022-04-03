@@ -1,10 +1,24 @@
-import { NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { CVDisplay } from 'components';
-import cvData from 'data/cvData';
-import cvDataExtended from 'data/cvDataExtended';
+import { getCv } from 'lib/cv.services';
+import { CVData } from 'types';
 
-const CVPage: NextPage = () => {
-  return <CVDisplay data={cvData} />;
+type Props = {
+  data: CVData;
+};
+
+const CVPage: NextPage<Props> = (props) => {
+  return <CVDisplay data={props.data} />;
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const cv = await getCv('javascript');
+
+  return {
+    props: {
+      data: cv.data(),
+    },
+  };
 };
 
 export default CVPage;
