@@ -1,5 +1,7 @@
+import { IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
+
 export type ContactInfoItem = {
-  icon: string; // font awesome class
+  icon: `${IconPrefix} ${IconName}`; // font awesome class
   text: string;
   url?: string;
 };

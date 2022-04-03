@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "firebase": "^9.6.7",
     "moment": "^2.29.1",
     "next": "12.1.0",

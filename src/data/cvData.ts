@@ -83,17 +83,17 @@ const data: CVData = {
       title: 'contact',
       items: [
         {
-          icon: 'phone',
+          icon: 'fas phone',
           text: '(+40) 763 682 222',
           url: 'tel:+40763682222',
         },
         {
-          icon: 'envelope',
+          icon: 'fas envelope',
           text: 'andrei@stoica.dev',
           url: 'mailto:andrei@stoica.dev',
         },
         {
-          icon: 'location-dot',
+          icon: 'fas location-dot',
           text: 'Timisoara, Romania',
         },
         {
