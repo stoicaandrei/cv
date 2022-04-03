@@ -1,8 +1,17 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
-    <div className="h-screen w-screen bg-desk bg-cover bg-center">
+    <div className="h-screen w-screen">
+      <Image
+        src="/desk.jpeg"
+        layout="fill"
+        alt="desk"
+        objectFit="cover"
+        objectPosition="center"
+        className="z-0"
+      />
       <div className="flex h-full w-full flex-col items-center justify-center gap-32 backdrop-blur-md">
         <div className="text-6xl">
           <p>New website</p>
