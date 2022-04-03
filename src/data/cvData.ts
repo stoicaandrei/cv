@@ -23,7 +23,7 @@ const data: CVData = {
           description: `
 <p>The client, an e-learning startup dedicated to helping students with their university admission process, had problems scaling up the business and was unable to obtain more funding from investors, due to lacking a centralized system for content, staff and stats.</p>
 <ul class="list-disc pl-5"><li><b>Secured funding of over $500k by building from scratch the MVP of a new centralized system</b> by working closely with the client and understanding their needs. Also, fixed 90% of bugs by fixing the flaws in the existing system architecture.</li></ul>
-<ul class="list-disc pl-5"><li><b>Increased overall review scores by more than 150% and customer satisfaction by over 40%</b> by improving user feedback process and solving their existing problems.</li></ul>
+<ul class="list-disc pl-5"><li><b>Improved internal operations time by more than 200% and customer satisfaction by over 40% by improving user feedback process and solving their existing problems.</li></ul>
 <p>Skills: Nodejs, Express, MongoDB, Reactjs, React Query, Ant Design, NX monorepo, Digitalocean CI/CD, System Architecture, Agile, Asana, socket.io</p>`,
           mostRelevant: true,
         },
