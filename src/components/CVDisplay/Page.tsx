@@ -1,6 +1,6 @@
 type Props = {
-  sidebar: React.ReactNode;
-  body: React.ReactNode;
+  sidebar?: React.ReactNode;
+  body?: React.ReactNode;
 };
 
 const Page = ({ sidebar, body }: Props) => {

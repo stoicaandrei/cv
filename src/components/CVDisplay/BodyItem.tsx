@@ -19,7 +19,7 @@ const renderContent = (item: BodyItemType) => {
         />
       );
     case 'work experience':
-      return <Experience items={item.items} />;
+      return <Experience items={item.items.slice(0, 3)} />;
     case 'most relevant work experience':
       return (
         <Experience items={item.items.filter((item) => item.mostRelevant)} />

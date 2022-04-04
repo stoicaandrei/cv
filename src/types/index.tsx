@@ -66,7 +66,7 @@ export type ExperienceItem = {
   endDate: string;
   mostRelevant: boolean;
 };
-type WorkExperience = {
+export type WorkExperience = {
   title: 'work experience' | 'most relevant work experience';
   items: ExperienceItem[];
 };
