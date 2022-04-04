@@ -1,9 +1,14 @@
 import type { NextPage } from 'next';
+import Head from 'next/head';
 import Image from 'next/image';
 
 const Home: NextPage = () => {
   return (
     <div className="h-screen w-screen">
+      <Head>
+        <title>stoica.dev | Coming soon</title>
+      </Head>
+
       <Image
         src="/desk.jpeg"
         layout="fill"

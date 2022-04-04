@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 import { useState } from 'react';
 import { CVDisplay } from 'components';
 import { getCv } from 'lib/cv.services';
@@ -13,6 +14,9 @@ const CVPage: NextPage<Props> = (props) => {
 
   return (
     <div>
+      <Head>
+        <title>stoica.dev | CV</title>
+      </Head>
       <div className="print:hidden">
         <input
           type="checkbox"
