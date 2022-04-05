@@ -16,6 +16,8 @@ const Profile = ({ photoUrl, name, title }: Props) => {
           alt="Person cv picture"
           layout="fill"
           className="rounded-full"
+          objectFit="cover"
+          objectPosition="center"
         />
       </div>
       <h1 className="py-2 text-2xl font-semibold uppercase text-white">
