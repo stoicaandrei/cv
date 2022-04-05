@@ -30,6 +30,9 @@ const Experience = ({ items }: Props) => {
             <RawHtml
               html={work.description}
               className="flex flex-col gap-3 text-justify"
+              addClassName={{
+                ul: 'list-disc pl-5 flex flex-col gap-3',
+              }}
             />
           </div>
         );
