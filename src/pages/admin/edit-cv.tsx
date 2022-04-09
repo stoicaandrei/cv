@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
+import { useForm } from 'react-hook-form';
 import { CVForm } from 'components';
 import { useAuthCheck } from 'hooks';
 import { getCv, updateCV } from 'lib';
@@ -14,20 +15,20 @@ const EditCVPage: NextPage<Props> = ({ data }) => {
   const onSubmit = (data: CVData) => {
     updateCV('test', data);
   };
+  const form = useForm({ defaultValues: data });
 
   return (
     <div className="m-5 rounded  bg-white p-5 shadow-md">
       <div className="flex flex-row items-center justify-between">
         <h1 className="text-xl font-bold">Edit CV</h1>
         <button
-          type="submit"
-          form="cv-edit-form"
+          onClick={form.handleSubmit(onSubmit)}
           className="rounded bg-blue-400 px-5 py-2 font-semibold text-white"
         >
           Save
         </button>
       </div>
-      <CVForm initialData={data} onSubmit={onSubmit} />
+      <CVForm form={form} onSubmit={onSubmit} />
     </div>
   );
 };

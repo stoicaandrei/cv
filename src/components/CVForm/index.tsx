@@ -1,14 +1,14 @@
-import { useForm } from 'react-hook-form';
+import { UseFormReturn } from 'react-hook-form';
 import { Input } from 'components/ui';
 import { CVData } from 'types';
 
 type Props = {
-  initialData: CVData;
+  form: UseFormReturn<CVData>;
   onSubmit: (data: CVData) => void;
 };
 
-const CVForm = ({ initialData, onSubmit }: Props) => {
-  const { register, handleSubmit } = useForm({ defaultValues: initialData });
+const CVForm = ({ onSubmit, form }: Props) => {
+  const { register, handleSubmit } = form;
 
   return (
     <form id="cv-edit-form" onSubmit={handleSubmit(onSubmit)}>
