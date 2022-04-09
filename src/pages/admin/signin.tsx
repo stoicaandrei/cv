@@ -1,7 +1,11 @@
 import { NextPage } from 'next';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { signin } from 'lib';
 
 const SignInPage: NextPage = () => {
+  const [error, setError] = useState('');
+
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="w-96 rounded bg-white p-6 shadow-none md:shadow-lg">
@@ -9,7 +13,15 @@ const SignInPage: NextPage = () => {
         <p className="text-sm leading-normal">
           Access the hidden admin interface 👻
         </p>
-        <SignInForm onSubmit={(data) => {}} />
+        <SignInForm
+          onSubmit={(data) => {
+            setError('');
+            signin(data.email, data.password).catch((err) =>
+              setError(err.message)
+            );
+          }}
+        />
+        <p className="pt-3 text-sm text-gray-500">{error}</p>
       </div>
     </div>
   );
