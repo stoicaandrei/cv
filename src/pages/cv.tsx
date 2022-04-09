@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
 import { CVDisplay } from 'components';
-import { getCv } from 'lib/cv.services';
+import { getCv } from 'lib';
 import { CVData } from 'types';
 
 type Props = {
