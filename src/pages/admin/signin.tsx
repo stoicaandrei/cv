@@ -1,9 +1,11 @@
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { signin } from 'lib';
 
 const SignInPage: NextPage = () => {
+  const router = useRouter();
   const [error, setError] = useState('');
 
   return (
@@ -16,9 +18,9 @@ const SignInPage: NextPage = () => {
         <SignInForm
           onSubmit={(data) => {
             setError('');
-            signin(data.email, data.password).catch((err) =>
-              setError(err.message)
-            );
+            signin(data.email, data.password)
+              .then(() => router.push('/admin'))
+              .catch((err) => setError(err.message));
           }}
         />
         <p className="pt-3 text-sm text-gray-500">{error}</p>
