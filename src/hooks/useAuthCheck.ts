@@ -4,11 +4,12 @@ import { useUserData } from './useUserData';
 
 export const useAuthCheck = () => {
   const router = useRouter();
-  const [user] = useUserData();
+  const [user, isLoading] = useUserData();
 
   useEffect(() => {
+    if (isLoading) return;
     if (!user) {
       router.push('/admin/signin');
     }
-  }, []);
+  }, [user, isLoading]);
 };
