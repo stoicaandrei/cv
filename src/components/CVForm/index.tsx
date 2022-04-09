@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { Input } from 'components/ui';
 import { CVData } from 'types';
 
 type Props = {
@@ -12,8 +13,8 @@ const CVForm = ({ initialData, onSubmit }: Props) => {
   return (
     <form id="cv-edit-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col gap-3 pt-6">
-        <input {...register('name')} type="text" />
-        <input {...register('title')} type="text" />
+        <Input {...register('name')} />
+        <Input {...register('title')} />
       </div>
     </form>
   );

@@ -2,6 +2,7 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { Input } from 'components/ui';
 import { signin } from 'lib';
 
 const SignInPage: NextPage = () => {
@@ -44,18 +45,8 @@ const SignInForm = ({ onSubmit }: FormProps) => {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-3 pt-3"
     >
-      <input
-        {...register('email')}
-        type="email"
-        className="rounded border border-gray-500 p-3"
-        placeholder="Email"
-      />
-      <input
-        {...register('password')}
-        type="password"
-        className="rounded border border-gray-500 p-3"
-        placeholder="Password"
-      />
+      <Input {...register('email')} type="email" placeholder="Email" />
+      <Input {...register('password')} type="password" placeholder="Password" />
       <button type="submit" className="rounded-full bg-blue-600 p-2 text-white">
         Signin
       </button>
