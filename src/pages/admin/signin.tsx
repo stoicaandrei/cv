@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { useForm } from 'react-hook-form';
 
 const SignInPage: NextPage = () => {
   return (
@@ -8,25 +9,43 @@ const SignInPage: NextPage = () => {
         <p className="text-sm leading-normal">
           Access the hidden admin interface 👻
         </p>
-        <div className="flex flex-col gap-3 pt-3">
-          <input
-            id="email"
-            type="email"
-            className="rounded border border-gray-500 p-3"
-            placeholder="Email"
-          />
-          <input
-            id="password"
-            type="password"
-            className="rounded border border-gray-500 p-3"
-            placeholder="Password"
-          />
-          <button className="rounded-full bg-blue-600 p-2 text-white">
-            Signin
-          </button>
-        </div>
+        <SignInForm onSubmit={(data) => {}} />
       </div>
     </div>
+  );
+};
+
+type SignInData = {
+  email: string;
+  password: string;
+};
+type FormProps = {
+  onSubmit: (data: SignInData) => void;
+};
+const SignInForm = ({ onSubmit }: FormProps) => {
+  const { register, handleSubmit } = useForm<SignInData>();
+
+  return (
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-3 pt-3"
+    >
+      <input
+        {...register('email')}
+        type="email"
+        className="rounded border border-gray-500 p-3"
+        placeholder="Email"
+      />
+      <input
+        {...register('password')}
+        type="password"
+        className="rounded border border-gray-500 p-3"
+        placeholder="Password"
+      />
+      <button type="submit" className="rounded-full bg-blue-600 p-2 text-white">
+        Signin
+      </button>
+    </form>
   );
 };
 
