@@ -16,7 +16,7 @@ const CVForm = ({ onSubmit, form }: Props) => {
         <Label htmlFor="name" name="Your Name" />
         <Input {...register('name')} className="mb-3" />
         <Label htmlFor="title" name="Position Title" />
-        <Input {...register('title')} />
+        <Input {...register('title')} className="mb-3" />
       </div>
     </form>
   );
