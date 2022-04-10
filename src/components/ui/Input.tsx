@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
+import { forwardRef, InputHTMLAttributes } from 'react';
 
 type Props = {
   type?: 'text' | 'email' | 'password';
