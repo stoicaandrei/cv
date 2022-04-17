@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       data: cv.data(),
     },
+    revalidate: 10,
   };
 };
 
