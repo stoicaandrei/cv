@@ -37,7 +37,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     props: {
       data: cv.data(),
     },
-    revalidate: 10,
   };
 };
 
