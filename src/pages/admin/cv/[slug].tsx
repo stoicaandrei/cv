@@ -2,15 +2,17 @@ import { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
 import { CVDisplay } from 'components';
-import { getCv } from 'lib';
+import { getCv, updateCV } from 'lib';
 import { CVData } from 'types';
 
 type Props = {
   data: CVData;
+  slug: string;
 };
 
-const AdminCVEditPage: NextPage<Props> = (props) => {
+const AdminCVEditPage: NextPage<Props> = ({ data, slug }) => {
   const [short, setShort] = useState(true);
+  const [state, setState] = useState(data);
 
   return (
     <div>
@@ -25,7 +27,15 @@ const AdminCVEditPage: NextPage<Props> = (props) => {
         />
         Display short version
       </div>
-      <CVDisplay data={props.data} short={short} />
+      <CVDisplay
+        data={state}
+        short={short}
+        editable
+        onUpdate={(newData) => {
+          setState(newData);
+          updateCV(slug, newData);
+        }}
+      />
     </div>
   );
 };
@@ -37,6 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       data: cv.data(),
+      slug,
     },
   };
 };
