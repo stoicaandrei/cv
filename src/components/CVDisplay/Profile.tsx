@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { InvisibleInput } from 'components/ui';
+import { EditableImage, InvisibleInput } from 'components/ui';
 
 type Props = {
   photoUrl: string;
@@ -10,16 +10,11 @@ type Props = {
 const Profile = ({ photoUrl, name, title }: Props) => {
   return (
     <div className="flex w-full flex-col items-center gap-2">
-      <div className="relative aspect-square h-[224.56px]">
-        <Image
-          src={photoUrl}
-          alt="Person cv picture"
-          layout="fill"
-          className="rounded-full"
-          objectFit="cover"
-          objectPosition="center"
-        />
-      </div>
+      <EditableImage
+        src={photoUrl}
+        alt="Person cv picture"
+        className="h-[224.56px] rounded-full object-cover object-center"
+      />
       <InvisibleInput
         type="text"
         className="text-center text-2xl font-semibold uppercase text-white"
