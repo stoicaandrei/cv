@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import RawHtml from 'components/RawHtml';
+import { InvisibleInput } from 'components/ui';
 
 type Props = {
   photoUrl: string;
@@ -9,8 +9,8 @@ type Props = {
 
 const Profile = ({ photoUrl, name, title }: Props) => {
   return (
-    <div className="w-full text-center">
-      <div className="relative aspect-square ">
+    <div className="flex w-full flex-col items-center gap-2">
+      <div className="relative aspect-square h-[224.56px]">
         <Image
           src={photoUrl}
           alt="Person cv picture"
@@ -20,12 +20,17 @@ const Profile = ({ photoUrl, name, title }: Props) => {
           objectPosition="center"
         />
       </div>
-      <h1 className="py-2 text-2xl font-semibold uppercase text-white">
-        {name}
-      </h1>
-      <h2 className="text-sm">
-        <RawHtml html={title} />
-      </h2>
+      <InvisibleInput
+        type="text"
+        className="text-center text-2xl font-semibold uppercase text-white"
+        value={name}
+      />
+      <InvisibleInput
+        type="text"
+        className="text-center text-sm"
+        value={title}
+        multiline
+      />
     </div>
   );
 };
