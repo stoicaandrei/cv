@@ -46,7 +46,7 @@ const IconDisplay = ({ icon, className, ...props }: Props) => {
         icon={isValid ? iconArray : 'circle-exclamation'}
       />
       {!isValid && (
-        <span className="tooltip left-2 -top-4 w-40">
+        <span className="tooltip left-3 -top-3 w-52">
           {`The icon "${icon}" could not be found`}
         </span>
       )}
