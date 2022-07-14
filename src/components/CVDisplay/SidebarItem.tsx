@@ -9,15 +9,17 @@ import type { SidebarItem as SidebarItemType } from 'types';
 
 type Props = {
   item: SidebarItemType;
-  onUpdate: (data: SidebarItemType) => void;
+  onUpdate?: (data: SidebarItemType) => void;
+  editable?: boolean;
 };
 
 type ContentProps = {
   item: SidebarItemType;
-  onUpdate: (data: Partial<SidebarItemType>) => void;
+  onUpdate?: (data: Partial<SidebarItemType>) => void;
+  editable?: boolean;
 };
 
-const Content = ({ item, onUpdate }: ContentProps) => {
+const Content = ({ item, onUpdate, editable }: ContentProps) => {
   if ('content' in item) return <RawHtml html={item.content} />;
 
   switch (item.title) {
@@ -25,7 +27,8 @@ const Content = ({ item, onUpdate }: ContentProps) => {
       return (
         <ContactInfo
           items={item.items}
-          onUpdate={(items) => onUpdate({ items })}
+          onUpdate={(items) => onUpdate?.({ items })}
+          editable={editable}
         />
       );
     case 'skills':
@@ -39,16 +42,18 @@ const Content = ({ item, onUpdate }: ContentProps) => {
   }
 };
 
-const SidebarItem = ({ item, onUpdate }: Props) => {
+const SidebarItem = ({ item, onUpdate, editable }: Props) => {
   return (
     <div>
       <InvisibleInput
         className="pb-1 text-base font-semibold uppercase text-white"
         value={item.title}
+        disabled
       />
       <Content
         item={item}
-        onUpdate={(data) => onUpdate({ ...item, ...data } as any)}
+        onUpdate={(data) => onUpdate?.({ ...item, ...data } as any)}
+        editable={editable}
       />
     </div>
   );

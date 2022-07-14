@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import produce from 'immer';
 import { Fragment } from 'react';
 import { IconDisplay, InvisibleInput } from 'components';
@@ -5,10 +6,11 @@ import { ContactInfoItem } from 'types';
 
 type Props = {
   items: ContactInfoItem[];
-  onUpdate: (data: ContactInfoItem[]) => void;
+  onUpdate?: (data: ContactInfoItem[]) => void;
+  editable?: boolean;
 };
 
-const ContactInfo = ({ items, onUpdate }: Props) => {
+const ContactInfo = ({ items, onUpdate, editable }: Props) => {
   const updateItem = (data: Partial<ContactInfoItem>, index: number) => {
     onUpdate?.(
       produce(items, (draft) => {
@@ -18,25 +20,48 @@ const ContactInfo = ({ items, onUpdate }: Props) => {
   };
 
   return (
-    <div className="grid grid-cols-[min-content,1fr] gap-y-1 gap-x-2 ">
+    <div className="grid grid-cols-[min-content,1fr] gap-y-1 gap-x-2">
       {items.map((item, index) => {
         return (
-          <Fragment key={index}>
+          <div className="group contents" key={index}>
             <IconDisplay
               icon={item.icon}
-              className="self-center justify-self-center"
+              className={classNames({ 'cursor-pointer': editable })}
+              onClick={() => {
+                if (!editable) return;
+
+                const icon: any = prompt('Enter icon', item.icon);
+                if (!icon) return;
+
+                updateItem({ icon }, index);
+              }}
             />
-            <InvisibleInput
-              value={item.text}
-              onChange={(text) => updateItem({ text }, index)}
-            />
-            {/* {item.url && (
+            {editable && (
+              <div className="flex flex-row">
+                <InvisibleInput
+                  value={item.text}
+                  onChange={(text) => updateItem({ text }, index)}
+                />
+
+                <IconDisplay
+                  icon="fas link"
+                  className="cursor-pointer opacity-0 group-hover:opacity-100"
+                  onClick={() => {
+                    const url: any = prompt('Enter url', item.url);
+                    if (!url) return;
+
+                    updateItem({ url }, index);
+                  }}
+                />
+              </div>
+            )}
+            {!editable && item.url && (
               <a href={item.url} target="_blank" rel="noreferrer">
                 {item.text}
               </a>
             )}
-            {!item.url && item.text} */}
-          </Fragment>
+            {!editable && !item.url && item.text}
+          </div>
         );
       })}
     </div>

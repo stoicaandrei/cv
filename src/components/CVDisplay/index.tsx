@@ -39,12 +39,14 @@ const CVDisplay = ({ data, short, editable, onUpdate }: Props) => {
               name={data.name}
               title={data.title}
               onUpdate={partialUpdate}
+              editable={editable}
             />
             {data.sidebar.map((item, index) => (
               <SidebarItem
                 key={item.title}
                 item={item}
                 onUpdate={(data) => updateSidebarItem(data, index)}
+                editable={editable}
               />
             ))}
           </>
