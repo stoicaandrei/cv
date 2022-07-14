@@ -66,7 +66,8 @@ export const InvisibleInput = forwardRef<
         {...(props as any)}
       />
     ) : (
-      <div>
+      <>
+        {/* This is used to compute dyanmic width */}
         <span className="pointer-events-none absolute opacity-0" ref={span}>
           {content}
         </span>
@@ -88,7 +89,7 @@ export const InvisibleInput = forwardRef<
           ref={ref}
           {...props}
         />
-      </div>
+      </>
     );
   }
 );
