@@ -44,7 +44,7 @@ const CVDisplay = ({ data, short, editable, onUpdate }: Props) => {
               <SidebarItem
                 key={item.title}
                 item={item}
-                update={(data) => updateSidebarItem(data, index)}
+                onUpdate={(data) => updateSidebarItem(data, index)}
               />
             ))}
           </>

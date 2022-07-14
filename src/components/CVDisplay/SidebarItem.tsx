@@ -17,12 +17,17 @@ type ContentProps = {
   onUpdate: (data: Partial<SidebarItemType>) => void;
 };
 
-const Content = ({ item }: ContentProps) => {
+const Content = ({ item, onUpdate }: ContentProps) => {
   if ('content' in item) return <RawHtml html={item.content} />;
 
   switch (item.title) {
     case 'contact':
-      return <ContactInfo items={item.items} />;
+      return (
+        <ContactInfo
+          items={item.items}
+          onUpdate={(items) => onUpdate({ items })}
+        />
+      );
     case 'skills':
       return <Skills items={item.items} />;
     case 'languages':
