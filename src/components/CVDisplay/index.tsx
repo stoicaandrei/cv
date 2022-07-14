@@ -4,7 +4,7 @@ import ExtendedExperience from './ExtendedExperience';
 import Page from './Page';
 import Profile from './Profile';
 import SidebarItem from './SidebarItem';
-import { CVData, WorkExperience } from 'types';
+import { CVData, SidebarItem as SidebarItemType, WorkExperience } from 'types';
 
 type Props = {
   data: CVData;
@@ -21,6 +21,14 @@ const CVDisplay = ({ data, short, editable, onUpdate }: Props) => {
   const partialUpdate = (newData: Partial<CVData>) =>
     onUpdate?.({ ...data, ...newData });
 
+  const updateSidebarItem = (newData: SidebarItemType, index: number) => {
+    onUpdate?.(
+      produce(data, (draft) => {
+        draft.sidebar[index] = newData;
+      })
+    );
+  };
+
   return (
     <div>
       <Page
@@ -33,7 +41,11 @@ const CVDisplay = ({ data, short, editable, onUpdate }: Props) => {
               update={partialUpdate}
             />
             {data.sidebar.map((item) => (
-              <SidebarItem key={item.title} item={item} />
+              <SidebarItem
+                key={item.title}
+                item={item}
+                update={(data) => updateSidebarItem(data, index)}
+              />
             ))}
           </>
         }
