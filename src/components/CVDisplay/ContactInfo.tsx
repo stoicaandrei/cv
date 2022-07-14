@@ -37,7 +37,7 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
               }}
             />
             {editable && (
-              <div className="flex flex-row">
+              <div className="flex flex-row gap-1">
                 <InvisibleInput
                   value={item.text}
                   onChange={(text) => updateItem({ text }, index)}
@@ -52,6 +52,10 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
 
                     updateItem({ url }, index);
                   }}
+                />
+                <IconDisplay
+                  icon="fas grip-vertical"
+                  className="cursor-pointer opacity-0 group-hover:opacity-100"
                 />
               </div>
             )}
