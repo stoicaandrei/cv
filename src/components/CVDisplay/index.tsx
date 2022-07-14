@@ -38,9 +38,9 @@ const CVDisplay = ({ data, short, editable, onUpdate }: Props) => {
               photoUrl={data.photoUrl}
               name={data.name}
               title={data.title}
-              update={partialUpdate}
+              onUpdate={partialUpdate}
             />
-            {data.sidebar.map((item) => (
+            {data.sidebar.map((item, index) => (
               <SidebarItem
                 key={item.title}
                 item={item}

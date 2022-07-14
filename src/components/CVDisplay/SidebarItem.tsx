@@ -9,12 +9,12 @@ import type { SidebarItem as SidebarItemType } from 'types';
 
 type Props = {
   item: SidebarItemType;
-  update: (data: SidebarItemType) => void;
+  onUpdate: (data: SidebarItemType) => void;
 };
 
 type ContentProps = {
   item: SidebarItemType;
-  update: (data: Partial<SidebarItemType>) => void;
+  onUpdate: (data: Partial<SidebarItemType>) => void;
 };
 
 const Content = ({ item }: ContentProps) => {
@@ -34,15 +34,17 @@ const Content = ({ item }: ContentProps) => {
   }
 };
 
-const SidebarItem = ({ item, update }: Props) => {
+const SidebarItem = ({ item, onUpdate }: Props) => {
   return (
     <div>
       <InvisibleInput
         className="pb-1 text-base font-semibold uppercase text-white"
         value={item.title}
-        onChange={(title) => update({ ...item, title })}
       />
-      <Content item={item} update={(data) => update({ ...item, ...data })} />
+      <Content
+        item={item}
+        onUpdate={(data) => onUpdate({ ...item, ...data } as any)}
+      />
     </div>
   );
 };

@@ -6,30 +6,30 @@ type Props = {
   photoUrl: string;
   name: string;
   title: string;
-  update: (data: Partial<CVData>) => void;
+  onUpdate: (data: Partial<CVData>) => void;
 };
 
-const Profile = ({ photoUrl, name, title, update }: Props) => {
+const Profile = ({ photoUrl, name, title, onUpdate }: Props) => {
   return (
     <div className="flex w-full flex-col items-center gap-2">
       <EditableImage
         src={photoUrl}
         alt="Person cv picture"
         className="h-[224.56px] rounded-full object-cover object-center"
-        onUpdate={(url) => update({ photoUrl: url })}
+        onUpdate={(url) => onUpdate({ photoUrl: url })}
       />
       <InvisibleInput
         type="text"
         className="text-center text-2xl font-semibold uppercase text-white"
         value={name}
-        onChange={(name) => update({ name })}
+        onChange={(name) => onUpdate({ name })}
         multiline
       />
       <InvisibleInput
         type="text"
         className="text-center text-sm"
         value={title}
-        onChange={(title) => update({ title })}
+        onChange={(title) => onUpdate({ title })}
         multiline
       />
     </div>
