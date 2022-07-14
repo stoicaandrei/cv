@@ -35,8 +35,11 @@ export const InvisibleInput = forwardRef<
     const styleInput = dynamicWidth ? { width } : null;
 
     const classes = classNames(
-      'resize-none outline-none w-full',
+      'resize-none outline-none w-full cursor-text',
       hoverableClass && isHover ? hoverableClass : 'bg-transparent',
+      {
+        'hover:bg-gray-500': !props.disabled,
+      },
       className
     );
 
