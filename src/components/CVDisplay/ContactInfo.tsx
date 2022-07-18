@@ -31,6 +31,14 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
     );
   };
 
+  const removeItem = (index: number) => {
+    onUpdate?.(
+      produce(items, (draft) => {
+        draft.splice(index, 1);
+      })
+    );
+  };
+
   return (
     <div className="grid grid-cols-[min-content,1fr] gap-y-1 gap-x-2">
       {items.map((item, index) => {
@@ -87,6 +95,11 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
                   onClick={() =>
                     !isFirst && onUpdate?.(reorder(items, index, index - 1))
                   }
+                />
+                <IconDisplay
+                  icon="fas trash"
+                  className="cursor-pointer opacity-0 group-hover:opacity-100"
+                  onClick={() => removeItem(index)}
                 />
               </div>
             )}
