@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import produce from 'immer';
-import { Fragment } from 'react';
 import { IconDisplay, InvisibleInput } from 'components';
 import { ContactInfoItem } from 'types';
+import { reorder } from 'utils';
 
 type Props = {
   items: ContactInfoItem[];
@@ -22,6 +22,9 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
   return (
     <div className="grid grid-cols-[min-content,1fr] gap-y-1 gap-x-2">
       {items.map((item, index) => {
+        const isFirst = index === 0;
+        const isLast = index === items.length - 1;
+
         return (
           <div className="group contents" key={index}>
             <IconDisplay
@@ -54,8 +57,24 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
                   }}
                 />
                 <IconDisplay
-                  icon="fas grip-vertical"
-                  className="cursor-pointer opacity-0 group-hover:opacity-100"
+                  icon="fas angle-down"
+                  className={classNames(
+                    'cursor-pointer opacity-0 group-hover:opacity-100',
+                    { 'cursor-auto text-gray-500': isLast }
+                  )}
+                  onClick={() =>
+                    !isLast && onUpdate?.(reorder(items, index, index + 1))
+                  }
+                />
+                <IconDisplay
+                  icon="fas angle-up"
+                  className={classNames(
+                    'cursor-pointer opacity-0 group-hover:opacity-100',
+                    { 'cursor-auto text-gray-500': isFirst }
+                  )}
+                  onClick={() =>
+                    !isFirst && onUpdate?.(reorder(items, index, index - 1))
+                  }
                 />
               </div>
             )}
