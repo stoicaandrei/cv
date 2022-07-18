@@ -19,6 +19,18 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
     );
   };
 
+  const addNew = () => {
+    onUpdate?.(
+      produce(items, (draft) => {
+        draft.push({
+          icon: 'fas question',
+          text: '',
+          url: '',
+        });
+      })
+    );
+  };
+
   return (
     <div className="grid grid-cols-[min-content,1fr] gap-y-1 gap-x-2">
       {items.map((item, index) => {
@@ -87,6 +99,12 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
           </div>
         );
       })}
+      <div
+        className="col-span-full cursor-pointer border border-dashed border-gray-500 text-center hover:bg-gray-500"
+        onClick={addNew}
+      >
+        Add new
+      </div>
     </div>
   );
 };
