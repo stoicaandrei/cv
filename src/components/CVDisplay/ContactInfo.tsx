@@ -112,12 +112,14 @@ const ContactInfo = ({ items, onUpdate, editable }: Props) => {
           </div>
         );
       })}
-      <div
-        className="col-span-full cursor-pointer border border-dashed border-gray-500 text-center hover:bg-gray-500"
-        onClick={addNew}
-      >
-        Add new
-      </div>
+      {editable && (
+        <div
+          className="col-span-full cursor-pointer border border-dashed border-gray-500 text-center hover:bg-gray-500"
+          onClick={addNew}
+        >
+          Add new
+        </div>
+      )}
     </div>
   );
 };
